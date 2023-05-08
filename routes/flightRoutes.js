@@ -16,7 +16,7 @@ router.get("/:id", flightController.getFlight);
 router.patch(
   "/:id",
   userController.protect,
-  userController("admin"),
+  userController.restrictTo("admin"),
   flightController.updateFlight
 );
 router.delete(
