@@ -77,7 +77,6 @@ module.exports = class Email {
       <h1 style="color: #fff">Aves Air</h1>
     </div>
     <div>
-      <p>Dear <b>${booking.name}</b></p>
       <p>
         Congratulations! Your flight booking with Aves Air has been confirmed!
         We are excited to have you as our valued passenger on your upcoming

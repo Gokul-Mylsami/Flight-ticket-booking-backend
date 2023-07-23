@@ -106,7 +106,7 @@ exports.createBooking = catchAsync(async (req, res, next) => {
     bookedPremiumClassSeats * premiumClassPrice;
 
   const newBooking = await Booking.create({
-    user: user.name,
+    user: userId,
     flight: flightId,
     seatNumbers: req.body.seatNumbers,
     price,
