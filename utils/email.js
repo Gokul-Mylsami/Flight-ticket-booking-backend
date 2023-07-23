@@ -18,13 +18,79 @@ module.exports = class Email {
     });
   }
 
-  async sendWelcome() {
+  async sendWelcome(name) {
     const mailOptions = {
       from: this.from,
       to: this.to,
       subject: "Welcome to Aves Air",
-      html: `<p style="color:#339af0;font-size:3rem">Welcome to AvesAir</p>
-    <p style="font-size:2rem">Let's start the Journey , we will fly like the birds 🥳🤣</p>`,
+      html: `
+      <head>
+      <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      .color-primary {
+        color: #fff;
+      }
+
+      .navbar {
+        background-color: #228be6;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .text {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .bg-img {
+        opacity: 0.2;
+        margin: 0 auto;
+      }
+
+      .template {
+        position: absolute;
+      }
+
+      .small {
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1 class="color-primary">Aves Air</h1>
+    </nav>
+    <section class="container">
+      <img src="https://i.ibb.co/ZzSr2CD/logo.png" class="bg-img" alt="" />
+      <p class="text template">
+        Hi ${name} 🤩 , Welcome to <b> Aves Air </b> , your one-stop solution for
+        seamless flight bookings! We are thrilled to have you on board and ready
+        to take you on an incredible journey in the skies .
+      </p>
+    </section>
+    <footer>
+      <p class="text small">© 2023 Aves Air. All rights reserved.</p>
+    </footer>
+  </body>`,
     };
     await this.newTransport().sendMail(mailOptions);
   }
