@@ -112,9 +112,22 @@ module.exports = class Email {
       from: this.from,
       to: this.to,
       subject: "Aves Air - Booking Cancellation",
-      html: `<p style="font-size:2rem;font-weight:bold">Successfully Cancelled the Ticket</p>
-      <p>Amount Will be Refunded shortly 💥💥</p>
-      `,
+      html: `<div style="background-color: #228be6; text-align: center; padding: 3px">
+      <h1 style="color: #fff">Aves Air</h1>
+    </div>
+    <div>
+    <p style="font-size: 1.2rem; font-weight: bold; text-align: center">
+      This is to inform you that your flight booking with Aves Air has been
+      successfully cancelled. We understand that plans can change, and we
+      appreciate you choosing our services for your travel needs.
+    </p>
+    <p>Thank you for choosing Aves Air, and we wish you smooth travels ahead.</p>
+    <p>By Aves Air Team</p>
+    <div>
+      <p class="" style="text-align: center; font-size: 0.8rem">
+        © 2023 Aves Air. All rights reserved.
+      </p>
+    </div>`,
     };
     await this.newTransport().sendMail(mailOptions);
   }
